@@ -2,13 +2,13 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {cors: true});
+  const app = await NestFactory.create(AppModule);
   app.enableCors({
     // true for all origins
-    origin: ["http://localhost:5173", "https://optimity-react-public-side.vercel.app"],
+    origin:  "https://optimity-react-public-side.vercel.app",
     // origin: "*",
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: "*",    
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type, Accept',
     credentials: true,
   });
   await app.listen(5000);
