@@ -5,7 +5,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
     // true for all origins
-    origin:  ["https://optimity-react-public-side.vercel.app", "http://optimity.htoomaungthait.xyz", "http://localhost:5173"],
+    origin:  [
+      "https://optimity-react-public-side.vercel.app", 
+      "http://optimity.htoomaungthait.xyz", 
+      "https://optimity.htoomaungthait.xyz", 
+      "http://localhost:5173"
+    ],
     // origin: "*",
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Accept',
