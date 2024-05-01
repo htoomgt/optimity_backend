@@ -20,13 +20,13 @@ model User {
   position String @db.VarChar(512)
   review String @db.VarChar(2028)
   comapny String @db.VarChar(1024)
-  file_path String @db.VarChar(1024)
+  file_path String? @db.VarChar(1024)
   user_image_url String @db.VarChar(1024)
 }
 
-model HomeData{
+model Home_Data{
   id    Int     @id @default(autoincrement())
-  file_path String @db.VarChar(1024)
+  file_path String? @db.VarChar(1024)
   description String @db.VarChar(2048)
   home_image_url String @db.VarChar(1024)
   title String  @db.VarChar(512)
@@ -43,7 +43,7 @@ model Vacancies {
 model News {
   id Int @id @default (autoincrement())
   description String @db.VarChar(2048)
-  file_path String @db.VarChar(1024)
+  file_path String? @db.VarChar(1024)
   link String @db.VarChar(1024)
   user_image_url String @db.VarChar(1024)
 }
@@ -51,14 +51,15 @@ model News {
 model Solution {
   id Int @id @default(autoincrement())
   title String @db.VarChar(512)
+  description String @db.VarChar(2048)
   solution_image_url String @db.VarChar(1024)
-  file_path String  @db.VarChar(2048)
-  solution_service  SolutionService[]  
+  file_path String?  @db.VarChar(2048)
+  solution_services  Solution_Service[]  
 }
 
-model SolutionService {
+model Solution_Service {
   id Int @id @default(autoincrement())
-  solution Solution @relation(fields: [solution_id], references: [id])
+  solution Solution  @relation(fields: [solution_id], references: [id])
   solution_id  Int   
   service_name String @db.VarChar(1024)
   
@@ -68,12 +69,12 @@ model Service {
   id Int @id @default(autoincrement())
   title  String @db.VarChar(512)
   description String @db.VarChar(2048)
-  file_path String @db.VarChar(1024)
+  file_path String? @db.VarChar(1024)
   icon String @db.VarChar(256)
   service_image_url String @db.VarChar(1024)
 }
 
-model ContactUsMsg {
+model Contact_Us_Msg {
   id Int @id @default(autoincrement())
   name String @db.VarChar(256)
   phone String @db.VarChar(256)
@@ -87,7 +88,7 @@ model About {
   id Int @id @default(autoincrement())
   about_image_url String @db.VarChar(1024)
   description String @db.VarChar(1024)
-  file_path String @db.VarChar(1024)
+  file_path String? @db.VarChar(1024)
   title String @db.VarChar(512)
 }
 

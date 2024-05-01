@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { create } from 'domain';
 
 // Initialize Prisma Client
 const prisma = new PrismaClient();
@@ -7,7 +8,7 @@ const prisma = new PrismaClient();
 async function main(){
     
     // create  home initial data
-    const homeDataCreateResp = await prisma.homeData.create({
+    const homeDataCreateResp = await prisma.home_Data.create({
         data : {
             title : "Welcome to Optimity!",
             file_path : "",
@@ -118,6 +119,66 @@ async function main(){
         ]
       });
 
+      // create solution data
+      const solutionCreateResp = await prisma.solution.createMany({
+        data : [
+          {
+            title :"Telco & ISP Solutions",
+            description : "Our Solutions are uniquely positioned to maximize your network value with cost minimization. Our partnership with technology leaders empowers us with the skills and tools to manage your full IT landscape seamlessly. Our proven success reflects our unwavering commitment to improvement. We customize services to your exact needs, ensuring cost-effective management of your network environment. \n\n Optimity's strategic positioning allows us to enhance network infrastructure value while significantly reducing costs through: \n\n - Converged Super Core: Efficient core network architecture. \n\n - High-Speed Provider Edge: Seamless service delivery connectivity. \n\n - DCI (Data Center Interconnect): Smooth data transfer between centers. \n\n - Metro Ethernet Aggregation: Effective metropolitan network aggregation. \n\n - CPE (Customer Premises Equipment): Tailored equipment for providers, transport, and more. \n\n Our proven success reflects our unwavering commitment to improvement. We customize services to your exact needs, ensuring cost-effective management of your network environment." ,
+            solution_image_url : "ispImage",            
+          },
+          {
+            title :"Data Center Solution",
+            description : "Turnkey approach we offer covers everything from design and implementation to maintenance and optimization. With a single point of contact, you can streamline communication, minimize coordination efforts, and eliminate the complexities of dealing with multiple providers. Our turnkey solution accelerates project timelines, reduces costs, and ensures a cohesive strategy that aligns with your goals.\n\n We also offer Data Center Infrastructure Solutions such as: \n\n - DC & NOC – Design and Build, \n\n - DC integration and migration, \n\n - IT infra & management system, \n\n - Facility and Operation management. \n\n Embrace the data center solutions that are both efficient and effective, brought to you with the simplicity and expertise you deserve." ,
+            solution_image_url : "ispImage",            
+          },
+          {
+            title :"Hyper Converged Solution",
+            description : "Hyperconverged infrastructure (HCI) unifies the entire data center stack, encompassing compute, storage, storage networking, and virtualization. It replaces complex and costly legacy infrastructure with a streamlined platform. HCI’s growing popularity stems from its ability to consolidate and simplify the compute, storage, and network infrastructure for business-critical applications. We’re committed to tailoring our Hyperconverged Solution to your unique needs. Whether you’re seeking to modernize your data center or enhance remote work capabilities, our solution offers a seamless integration process and unparalleled support." ,
+            solution_image_url : "ispImage",            
+          },
+          {
+            title :"Security Solutions",
+            description : "Unparalleled protection with our extensive array of security solutions from firewalls to anti-DDoS, malware and DNS security, proxy, PKI, DPI, end-point security, and security testing, our diverse range is crafted to establish a multi-layered defense strategy." ,
+            solution_image_url : "ispImage",            
+          },
+          {
+            title :"End-user Computing",
+            description : "Virtual Desktop Infrastructure (VDI) promotes improved user mobility and remote access by providing a standardized desktop that can be accessed virtually from any device, anywhere. Users can access their familiar desktop environment with all their applications, data, and settings intact, boosting productivity and reducing the learning curve for new technologies. VDI technology not only benefits end users but also serves as a significant cost-saving measure: Since the majority of processing in VDI is server-based, there’s no need for costly or advanced hardware. Access to VDI can be achieved through an affordable thin client, which could be a repurposed old PC, thereby extending its lifespan. This reduces the need for IT to make numerous new purchases or significant budget adjustments." ,
+            solution_image_url : "ispImage",            
+          },
+          {
+            title :"Managed IT & Cloud Services",
+            description : "We specialize in providing comprehensive Managed IT and Cloud Services, designed to optimize your business operations and boost productivity. We understand that managing an IT infrastructure can be a complex and time-consuming task, which is why we offer a complete suite of services to handle all your IT needs. Our Managed IT services encompass everything from network management and data storage to system updates and cybersecurity. Our team of seasoned IT professionals works tirelessly to ensure your IT operations run smoothly and securely. We proactively monitor your systems to identify and resolve issues before they impact your business, and we provide regular system updates to keep your technology current and efficient. In addition to our IT services, we also offer robust Cloud Services. In today’s digital age, the cloud has become an essential tool for businesses of all sizes. With Optimity’s Managed IT and Cloud Services, you can focus on what you do best – running your business. Let us handle your IT and cloud needs, so you can enjoy peace of mind knowing that your technology is in expert hands." ,
+            solution_image_url : "ispImage",            
+          },
+          {
+            title :"Enterprise Office Network & End-user Equipment's Supplies",
+            description : "Comprehending the importance of a robust and efficient office network for your enterprise, we offer comprehensive solutions for Enterprise Office Network and End-user Equipment Supplies. Our offerings include everything from high-speed routers and switches to ensure seamless connectivity, to end-user devices like computers, laptops and many more. We source our equipment from trusted manufacturers, ensuring you receive reliable, high-quality products that enhance productivity and streamline operations. Whether you’re setting up a new office or upgrading your existing network, our solutions are designed to meet your specific needs, ensuring your enterprise runs smoothly and efficiently." ,
+            solution_image_url : "ispImage",            
+          },  
+        ]
+      });
+
+      console.log(solutionCreateResp);
+
+
+      // creating news data
+      const newsData =  [
+        { 
+          
+          title: "New Microsoft AI animates faces from photos",
+          description : "Last week, Microsoft researchers detailed a new AI model they’ve developed that can take a still image of a face and an audio clip of someone speaking and automatically create a realistic looking video of that person speaking. The videos — which can be made from photorealistic faces, as well as cartoons or artwork — are complete with compelling lip syncing and natural face and head movements.",
+          link : "https://edition.cnn.com/2024/04/21/tech/microsoft-ai-tool-animates-faces/index.html",
+          user_image_url : ""
+        }
+      ];
+
+      const newsDataCreationResp = prisma.news.createMany({
+        data : newsData
+      });
+
+     
 
     
 }
