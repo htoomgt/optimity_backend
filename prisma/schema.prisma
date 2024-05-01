@@ -24,6 +24,14 @@ model User {
   user_image_url String @db.VarChar(1024)
 }
 
+model HomeData{
+  id    Int     @id @default(autoincrement())
+  file_path String @db.VarChar(1024)
+  description String @db.VarChar(2048)
+  home_image_url String @db.VarChar(1024)
+  title String  @db.VarChar(512)
+}
+
 
 model Vacancies {
   id Int @id @default(autoincrement())
@@ -39,3 +47,67 @@ model News {
   link String @db.VarChar(1024)
   user_image_url String @db.VarChar(1024)
 }
+
+model Solution {
+  id Int @id @default(autoincrement())
+  title String @db.VarChar(512)
+  solution_image_url String @db.VarChar(1024)
+  file_path String  @db.VarChar(2048)
+  solution_service  SolutionService[]  
+}
+
+model SolutionService {
+  id Int @id @default(autoincrement())
+  solution Solution @relation(fields: [solution_id], references: [id])
+  solution_id  Int   
+  service_name String @db.VarChar(1024)
+  
+}
+
+model Service {
+  id Int @id @default(autoincrement())
+  title  String @db.VarChar(512)
+  description String @db.VarChar(2048)
+  file_path String @db.VarChar(1024)
+  icon String @db.VarChar(256)
+  service_image_url String @db.VarChar(1024)
+}
+
+model ContactUsMsg {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(256)
+  phone String @db.VarChar(256)
+  email String @db.VarChar(512)
+  region String @db.VarChar(256)
+  company String @db.VarChar(256)
+  message String @db.VarChar(2048)
+}
+
+model About {
+  id Int @id @default(autoincrement())
+  about_image_url String @db.VarChar(1024)
+  description String @db.VarChar(1024)
+  file_path String @db.VarChar(1024)
+  title String @db.VarChar(512)
+}
+
+model Optimity {
+  id Int @id @default(autoincrement())
+  address String @db.VarChar(512)
+  email String @db.VarChar(512)
+  phone String @db.VarChar(512)
+}
+
+model CoreVal {
+  id Int @id @default(autoincrement())
+  value String @db.VarChar(2048)
+}
+
+model Vismis {
+  id Int @id @default(autoincrement())
+  title String @db.VarChar(512)
+  description String @db.VarChar(2048)
+}
+
+
+
