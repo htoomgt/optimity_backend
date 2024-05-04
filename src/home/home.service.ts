@@ -7,6 +7,6 @@ export class HomeService {
   constructor(private readonly prisma: PrismaService) {}
 
     async getWelcomeInfo(){
-        return await this.prisma.homeData.findMany();
+        return await this.prisma.home_Data.findMany();
     }
 }
