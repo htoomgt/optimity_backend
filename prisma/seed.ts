@@ -178,6 +178,66 @@ async function main(){
         data : newsData
       });
 
+      // creating vacancies data
+      const vacanciesData = [
+        {           
+          "title": "Officer",
+          "education": "Bachelor in Marketing",
+          "experience": "No Experience needed freshers can apply"
+        },
+        { 
+          
+          "title": "Brand Officer",
+          "education": "Bachelor in Marketing",
+          "experience": "No Experience needed freshers can apply"
+        }
+      ];
+
+      const vacanciesCreationRes = prisma.vacancies.createMany({
+        data : vacanciesData
+      });
+
+      // creating core value data
+      const coreValueData =  [
+        { 
+          
+          "value": "Ethical Integrity ► Upholding ethical standards through responsible and accountable actions."
+        },
+        { 
+          
+          "value": "Customer-Centricity ► Prioritizing our customers' success, ensuring employee satisfaction, and creating value for our shareholders."
+        },
+        { 
+          
+          "value": "Passion for Excellence ► Fueling our actions with an unwavering passion for excellence."
+        },
+        { 
+          
+          "value": "Social and Environmental Responsibility ► Committing to the well-being of society, the environment, and future generations in all our endeavors."
+        }
+      ];
+
+      const coreValueDataCreateResp = prisma.coreVal.createMany({
+        data : coreValueData
+      });
+
+      // vission mission statement data
+      const visionMissionData = [
+        {           
+          "title": "Vision",
+          "description" : "To become the leading innovative ICT Solution Provider in Myanmar, dedicated to serving our customers' best interests."
+        },
+        {           
+          "title": "Mission",
+          "description" : "To consistently drive innovation and adaptation, delivering expert project solutions, and providing proactive operational support that aligns with evolving technology."
+        }
+         
+      ];
+
+      const visionMissionDataCreatingResp = prisma.vismis.createMany({
+        data : visionMissionData
+      });
+
      
 
     
