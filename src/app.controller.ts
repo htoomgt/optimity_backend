@@ -1,9 +1,9 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
   // @Get()
   // getHello(): string {
@@ -25,33 +25,33 @@ export class AppController {
   //   return this.appService.getOrgSolutions();
   // }
 
-  @Get("solutions/:id")
-  getOrgSolutionById(@Param('id') id : string){
-    return this.appService.getOrgSolutionById(id);
-  }
+  // @Get("solutions/:id")
+  // getOrgSolutionById(@Param('id') id : string){
+  //   return this.appService.getOrgSolutionById(id);
+  // }
 
   @Get("about")
-  getAboutMainContent(){
+  getAboutMainContent() {
     return this.appService.getAboutMainContent();
   }
 
   @Get("visionmission")
-  getVisionMission(){
+  getVisionMission() {
     return this.appService.getVisionMission();
   }
 
   @Get("corevalues")
-  getCoreValues(){
+  getCoreValues() {
     return this.appService.getCoreValues();
   }
 
   @Get('news')
-  getNews(){
+  getNews() {
     return this.appService.getNews();
   }
 
   @Get('vacancy')
-  getVacancies(){
+  getVacancies() {
     return this.appService.getVacancies();
   }
 
