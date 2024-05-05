@@ -15,8 +15,8 @@ export class SolutionService {
 
             });
 
-            const changedNameSolutions = this.changePropertyNameArray(solutions, "solution_image_url", "imageUrl")
-            return changedNameSolutions;
+            this.changePropertyNameArray(solutions, "solution_image_url", "imageUrl")
+            return solutions;
         } catch (error) {
             this.logger.error(error);
             return error;
