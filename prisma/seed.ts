@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 async function main() {
 
   // create  home initial data
-  const homeDataCreateResp = await prisma.home_Data.create({
+  const homeDataCreateResp = await prisma.homeData.create({
     data: {
       title: "Welcome to Optimity!",
       file_path: "",
@@ -209,7 +209,7 @@ async function main() {
     solutionServicesToCreate = solutionServices[index];
 
     solutionServicesToCreate.forEach(async (service) => {
-      await prisma.solution_Service.create({
+      await prisma.solutionService.create({
         data : { solution_id : createdSolution.id , service_name : service}
       });
     })
@@ -250,7 +250,7 @@ async function main() {
     }
   ];
 
-  const vacanciesCreationRes = prisma.vacancies.createMany({
+  const vacanciesCreationRes = prisma.vacancy.createMany({
     data: vacanciesData
   });
 

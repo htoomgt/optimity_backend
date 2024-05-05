@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE `User` (
+CREATE TABLE `users` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(512) NOT NULL,
     `name` VARCHAR(512) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE `User` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Home_Data` (
+CREATE TABLE `home_data` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `file_path` VARCHAR(1024) NULL,
     `description` VARCHAR(2048) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `Home_Data` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Vacancies` (
+CREATE TABLE `vacancies` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(512) NOT NULL,
     `experience` VARCHAR(2048) NOT NULL,
@@ -34,8 +34,9 @@ CREATE TABLE `Vacancies` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `News` (
+CREATE TABLE `news` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(1024) NOT NULL,
     `description` VARCHAR(2048) NOT NULL,
     `file_path` VARCHAR(1024) NULL,
     `link` VARCHAR(1024) NOT NULL,
@@ -45,7 +46,7 @@ CREATE TABLE `News` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Solution` (
+CREATE TABLE `solutions` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(512) NOT NULL,
     `description` VARCHAR(2048) NOT NULL,
@@ -56,16 +57,16 @@ CREATE TABLE `Solution` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Solution_Service` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+CREATE TABLE `SolutionService` (
+    `solution_services` INTEGER NOT NULL AUTO_INCREMENT,
     `solution_id` INTEGER NOT NULL,
     `service_name` VARCHAR(1024) NOT NULL,
 
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`solution_services`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Service` (
+CREATE TABLE `services` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(512) NOT NULL,
     `description` VARCHAR(2048) NOT NULL,
@@ -77,7 +78,7 @@ CREATE TABLE `Service` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Contact_Us_Msg` (
+CREATE TABLE `contact_us_msges` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(256) NOT NULL,
     `phone` VARCHAR(256) NOT NULL,
@@ -90,7 +91,7 @@ CREATE TABLE `Contact_Us_Msg` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `About` (
+CREATE TABLE `about` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `about_image_url` VARCHAR(1024) NOT NULL,
     `description` VARCHAR(1024) NOT NULL,
@@ -101,17 +102,17 @@ CREATE TABLE `About` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Optimity` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+CREATE TABLE `optimity` (
+    `optimity` INTEGER NOT NULL AUTO_INCREMENT,
     `address` VARCHAR(512) NOT NULL,
     `email` VARCHAR(512) NOT NULL,
     `phone` VARCHAR(512) NOT NULL,
 
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`optimity`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `CoreVal` (
+CREATE TABLE `core_vals` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `value` VARCHAR(2048) NOT NULL,
 
@@ -119,7 +120,7 @@ CREATE TABLE `CoreVal` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Vismis` (
+CREATE TABLE `vis_mis` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(512) NOT NULL,
     `description` VARCHAR(2048) NOT NULL,
@@ -128,4 +129,4 @@ CREATE TABLE `Vismis` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Solution_Service` ADD CONSTRAINT `Solution_Service_solution_id_fkey` FOREIGN KEY (`solution_id`) REFERENCES `Solution`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `SolutionService` ADD CONSTRAINT `SolutionService_solution_id_fkey` FOREIGN KEY (`solution_id`) REFERENCES `solutions`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
