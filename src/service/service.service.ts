@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { Logger } from  '@nestjs/common';
 
 @Injectable()
 export class ServiceService {
+    private  readonly logger = new Logger(ServiceService.name);
+
     constructor(private readonly prisma: PrismaService) {}
 
     async getServicesFromDb(){
@@ -14,10 +17,26 @@ export class ServiceService {
 
             return serviceResult;
         } catch (error) {
-            console.log(error);
+            this.logger.error(error);
             return error;
         }
 
 
+    }
+
+    async getServiceByIdFromDb(id : string){
+        const numId = parseInt(id);
+        
+        try {
+            const serviceById = await this.prisma.service.findFirst({
+                select : { id : true, title : true, description : true, icon : true},
+                where : { id : numId}
+            })
+
+            return serviceById;
+        } catch (error) {
+            this.logger.error(error);
+            return error;
+        }
     }
 }

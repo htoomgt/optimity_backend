@@ -15,15 +15,15 @@ export class AppController {
   //   return this.appService.getOrgServices();
   // }
 
-  @Get("services/:id")
-  getOrgServiceById(@Param('id') id:string){
-    return this.appService.getOrgServiceById(id);
-  }
+  // @Get("services/:id")
+  // getOrgServiceById(@Param('id') id:string){
+  //   return this.appService.getOrgServiceById(id);
+  // }
 
-  @Get("solutions")
-  getOrgSolutions(){
-    return this.appService.getOrgSolutions();
-  }
+  // @Get("solutions")
+  // getOrgSolutions(){
+  //   return this.appService.getOrgSolutions();
+  // }
 
   @Get("solutions/:id")
   getOrgSolutionById(@Param('id') id : string){
