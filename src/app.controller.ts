@@ -10,10 +10,10 @@ export class AppController {
   //   return this.appService.getHello();
   // }
 
-  @Get("services")
-  getOrgServices(){
-    return this.appService.getOrgServices();
-  }
+  // @Get("services")
+  // getOrgServices(){
+  //   return this.appService.getOrgServices();
+  // }
 
   @Get("services/:id")
   getOrgServiceById(@Param('id') id:string){
