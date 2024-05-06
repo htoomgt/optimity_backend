@@ -30,29 +30,29 @@ export class AppController {
   //   return this.appService.getOrgSolutionById(id);
   // }
 
-  @Get("about")
-  getAboutMainContent() {
-    return this.appService.getAboutMainContent();
-  }
+  // @Get("about")
+  // getAboutMainContent() {
+  //   return this.appService.getAboutMainContent();
+  // }
 
-  @Get("visionmission")
-  getVisionMission() {
-    return this.appService.getVisionMission();
-  }
+  // @Get("visionmission")
+  // getVisionMission() {
+  //   return this.appService.getVisionMission();
+  // }
 
-  @Get("corevalues")
-  getCoreValues() {
-    return this.appService.getCoreValues();
-  }
+  // @Get("corevalues")
+  // getCoreValues() {
+  //   return this.appService.getCoreValues();
+  // }
 
   // @Get('news')
   // getNews() {
   //   return this.appService.getNews();
   // }
 
-  @Get('vacancy')
-  getVacancies() {
-    return this.appService.getVacancies();
-  }
+  // @Get('vacancy')
+  // getVacancies() {
+  //   return this.appService.getVacancies();
+  // }
 
 }

@@ -210,7 +210,7 @@ async function main() {
 
     solutionServicesToCreate.forEach(async (service) => {
       await prisma.solutionService.create({
-        data : { solution_id : createdSolution.id , service_name : service}
+        data: { solution_id: createdSolution.id, service_name: service }
       });
     })
 
@@ -250,7 +250,7 @@ async function main() {
     }
   ];
 
-  const vacanciesCreationRes = prisma.vacancy.createMany({
+  const vacanciesCreationRes = await prisma.vacancy.createMany({
     data: vacanciesData
   });
 
