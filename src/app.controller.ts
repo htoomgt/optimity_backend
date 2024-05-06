@@ -45,10 +45,10 @@ export class AppController {
     return this.appService.getCoreValues();
   }
 
-  @Get('news')
-  getNews() {
-    return this.appService.getNews();
-  }
+  // @Get('news')
+  // getNews() {
+  //   return this.appService.getNews();
+  // }
 
   @Get('vacancy')
   getVacancies() {
