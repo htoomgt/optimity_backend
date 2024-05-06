@@ -1,8 +1,12 @@
+import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { MetadataScanner } from '@nestjs/core/metadata-scanner';
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  
   app.enableCors({
     // true for all origins
     origin:  [
