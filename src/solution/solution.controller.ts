@@ -1,18 +1,18 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param } from "@nestjs/common";
 import { SolutionService } from './solution.service';
 
 @Controller("")
 export class SolutionController {
 
-    constructor(private solutionService : SolutionService) {}
+    constructor(private solutionService: SolutionService) { }
 
     @Get("solutions")
-    getSolution(){
+    getSolution() {
         return this.solutionService.getAllSolutionFromDb();
     }
 
-    @Get("solution/:id")
-    getSolutionById(@Param("id") id : string){
+    @Get("solutions/:id")
+    getSolutionById(@Param("id") id: string) {
         return this.solutionService.getSolutionByIdFromDb(id);
     }
 }
