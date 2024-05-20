@@ -14,7 +14,8 @@ async function bootstrap() {
       "http://optimity.htoomaungthait.xyz",
       "https://optimity.htoomaungthait.xyz",
       "http://localhost:5173",
-      "http://optimitycomm.com"
+      "http://optimitycomm.com",
+      "http://www.optimitycomm.com"
     ],
     // origin: "*",
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
